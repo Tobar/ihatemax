@@ -1,31 +1,23 @@
-<form (ngSubmit)="registrar()" #formularioRegistro="ngForm">
+<form  (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm" >
   <div>
-    <label for="username">Nombre:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="usuario.username" required>
+    <label for="documentNumber">Document Number:</label>
+    <input type="text" name="documentNumber" [(ngModel)]="usuario.documentNumber" required>
   </div>
   <div>
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" [(ngModel)]="usuario.email" required>
+    <label for="email">Email:</label>
+    <input type="email" name="email" [(ngModel)]="usuario.email" required>
   </div>
   <div>
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" [(ngModel)]="usuario.password" required>
+    <label for="name">Name:</label>
+    <input type="text" name="name" [(ngModel)]="usuario.name" required>
   </div>
   <div>
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="pasnamesword" [(ngModel)]="usuario.name" required>
+    <label for="username">Username:</label>
+    <input type="text" name="username" [(ngModel)]="usuario.username" required>
   </div>
   <div>
-    <label for="documentNumber">Documento:</label>
-    <input type="text" id="documentNumber" name="documentNumber" [(ngModel)]="usuario.documentNumber" required>
+    <label for="password">Password:</label>
+    <input type="password" name="password" [(ngModel)]="usuario.password" required>
   </div>
-  <div>
-    <label for="contactNumber">Numero de Contacto:</label>
-    <input type="text" id="contactNumber" name="contactNumber" [(ngModel)]="usuario.contactNumber" required>
-  </div>
-
-
-  <button type="submit">Registrar</button>
+  <button type="submit">Register</button>
 </form>
-
-{{usuarios | json}}

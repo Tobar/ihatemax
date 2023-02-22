@@ -8,54 +8,41 @@ import { UsuarioRegistro } from 'src/app/models/UsuarioRegistro.model';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
-  usuario: UsuarioRegistro = {
-    username: '',
-    email: '',
-    password: '',
-    name: '',
-    documentNumber: '',
-    contactNumber: '',
-  };
-
-  registroExitoso = false;
+  ngOnInit(): void {}
 
   url = 'https://ultraenvios.azurewebsites.net/api/Authenticate/register';
 
   constructor(private http: HttpClient) {}
 
-  registrar() {
+  usuario: UsuarioRegistro = {
+    documentNumber: '',
+    email: '',
+    name: '',
+    password: '',
+    username: '',
+  };
+
+  onSubmit(formData: UsuarioRegistro )       {
+    const data = {
+      documentNumber: formData.documentNumber,
+      email: formData.email,
+      name: formData.name,
+      password: formData.password,
+      username: formData.username,
+    };
+
     this.http
-      .post(this.url, {
-        body: JSON.stringify({
-          username: 'Sebas',
-          email: 'sebas@gmail.com',
-          password: 'helloworld',
-          name: 'Sebas',
-          documentNumber: '10232324',
-        }),
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+      .post(
+        url,
+        data
+      )
+      .subscribe(
+        (response) => {
+          console.log(response);
         },
-      })
-      .subscribe((res: any) => {
-        console.log('registro exitoso:', res);
-        this.registroExitoso = true;
-      });
-  }
-
-  usuarios: any;
-
-  ngOnInit() {
-    // Obtener el nombre de usuario desde algún lugar
-    const nombreUsuario = 'usuario1';
-
-    // Hacer la solicitud GET
-    this.http
-      .get(`https://ultraenvios.azurewebsites.net/api/User/wtobar`)
-      .subscribe((data) => {
-        this.usuarios = data;
-        console.log(this.usuarios);
-      });
+        (error) => {
+          console.log("Hay un error:" error);
+        }
+      );
   }
 }
