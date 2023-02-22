@@ -33,7 +33,7 @@ export class RegistroComponent implements OnInit {
 
     this.http
       .post(
-        url,
+        this.url,
         data
       )
       .subscribe(
@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
           console.log(response);
         },
         (error) => {
-          console.log("Hay un error:" error);
+          console.log("Hay un error:", error);
         }
       );
   }
