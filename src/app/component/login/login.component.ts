@@ -29,9 +29,7 @@ export class LoginComponent {
       (error: any) => {
         console.log(error);
       }
-
     );
-
     }
 }
 
