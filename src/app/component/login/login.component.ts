@@ -16,23 +16,20 @@ export class LoginComponent {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-
-
    login(){
     const url = 'https://ultraenvios.azurewebsites.net/api/Authenticate/login';
     const body = {
       username: this.loginUser.username,
       password: this.loginUser.password,
     };
-
     this.http.post(url, body).subscribe(
       (response: any) => {
-        // Login successful, redirect to another component
         this.router.navigate(['/salario']);
       },
       (error: any) => {
-        // Login failed, handle error
+        console.log(error);
       }
+
     );
 
     }
