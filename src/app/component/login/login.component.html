@@ -1,6 +1,6 @@
-<form  (submit)="login()" #loginForm="ngForm">
+<form  (submit)="login()" #loginForm="ngForm" class="space-y-4">
   <div>
-    <label for="username">Username:</label>
+    <label for="username" class="block mb-2">Username:</label>
     <input
       type="text"
       id="username"
@@ -19,6 +19,39 @@
   </div>
   <button type="submit">Login</button>
 </form>
+<!--dame una tabla con campos de texto que usen tailwind-->
+ <table class="table-auto">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">ID</th>
+      <th class="px-4 py-2">First Name</th>
+      <th class="px-4 py-2">Last Name</th>
+      <th class="px-4 py-2">Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border px-4 py-2">1</td>
+      <td class="border px-4 py-2">Mark</td>
+      <td class="border px-4 py-2">Otto</td>
+      <td class="border px-4 py-2">@mdo</td>
+    </tr>
+    <tr class="bg-black">
+      <td class="border px-4 py-2">2</td>
+      <td class="border px-4 py-2">Jacob</td>
+      <td class="border px-4 py-2">Thornton</td>
+      <td class="border px-4 py-2">@fat</td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">3</td>
+      <td class="border px-4 py-2">Larry</td>
+      <td class="border px-4 py-2">the Bird</td>
+      <td class="border px-4 py-2">@twitter</td>
+    </tr>
+  </tbody>
 
 
+<h1 class="">
+  Hello world!
+</h1>
 
