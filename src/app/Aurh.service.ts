@@ -5,12 +5,30 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AurhService {
-  constructor(private http: HttpClient) {}
 
-  register(usuario: { email: string; password: string;}): Observable<any> {
-    const url =
-      'https://ultraenvios.azurewebsites.net/api/Authenticate/register';
-    return this.http.post(url, usuario);
+export class AuthService {
+
+  private currentUser: any;
+
+  public logout(): void {
+    // Lógica para eliminar el usuario actualmente autenticado de la propiedad "currentUser"
+    this.currentUser = null;
+    // Lógica para eliminar el token de autenticación almacenado (si lo hay)
+    localStorage.removeItem('token');
+  }
+
+  public isLoggedIn(): boolean {
+    // Devuelve true si hay un usuario autenticado, false en caso contrario
+    return !!this.currentUser;
+  }
+
+  public getToken(): string {
+    // Devuelve el token de autenticación actualmente almacenado (si lo hay)
+    return localStorage.getItem('token')|| '' ;
+  }
+
+  public setToken(token: string): void {
+    // Almacena el token de autenticación en el almacenamiento local del navegador
+    localStorage.setItem('token', token);
   }
 }

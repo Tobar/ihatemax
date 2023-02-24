@@ -1,12 +1,11 @@
-<form (submit)="login()" #loginForm="ngForm">
+<form  (submit)="login()"  #loginForm="ngForm" *ngIf="login() ">
   <div>
     <label for="username">Username:</label>
     <input
       type="text"
       id="username"
       name="username"
-      [(ngModel)]="username"
-
+      [(ngModel)]="loginUser.username"
     />
   </div>
   <div>
@@ -15,9 +14,11 @@
       type="password"
       id="password"
       name="password"
-      [(ngModel)]="password"
-
+      [(ngModel)]="loginUser.password"
     />
   </div>
   <button type="submit">Login</button>
 </form>
+
+
+

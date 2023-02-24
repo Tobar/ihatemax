@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginUsuario } from 'src/app/models/LoginUsuarios.model';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  username?: string;
-  password?: string;
+  loginUser: LoginUsuario = {
+    username: '',
+    password: '',
+  };
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login() {
+
+
+   login(){
     const url = 'https://ultraenvios.azurewebsites.net/api/Authenticate/login';
-    const body = { username: this.username, password: this.password };
+    const body = {
+      username: this.loginUser.username,
+      password: this.loginUser.password,
+    };
 
     this.http.post(url, body).subscribe(
       (response: any) => {
         // Login successful, redirect to another component
-        this.router.navigate(['']);
+        this.router.navigate(['/salario']);
       },
       (error: any) => {
         // Login failed, handle error
       }
     );
-  }
+
+    }
 }
+
+
+
+

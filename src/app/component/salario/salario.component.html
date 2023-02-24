@@ -1,0 +1,60 @@
+<form (ngSubmit)="Salario(Salario2.value)" #Salario2="ngForm">
+
+  <div>
+    <label for="nombre">  Nombre: </label>
+      <input type="text" name="nombre" [(ngModel)]="salario.nombre" required>
+
+  </div>
+  <div>
+    <label for="apellido"> Apellido:  </label>
+      <input type="text" name="apellido" [(ngModel)]="salario.apellido" required>
+
+  </div>
+  <div>
+    <label for="email"> Email:</label>
+      <input type="email" name="email" [(ngModel)]="salario.email" required>
+
+  </div>
+  <div>
+    <label for="saldo">Saldo:</label>
+    <input type="number" name="saldo" [(ngModel)]="salario.saldo" required>
+  </div>
+
+
+  <button type="submit">Register</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Saldo</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of Clientes; let i = index" >
+      <td>{{ i + 1 }}</td>
+      <td>{{ customer.nombre }}</td>
+      <td>{{ customer.apellido }}</td>
+      <td>{{ customer.email  }}</td>
+      <td>{{ customer.saldo | currency: "COP" : "$"}}</td>
+    </tr>
+  </tbody>
+
+  <!--Traeme el Salario total del metodo GetSalarioTotal()-->
+  <tfoot>
+    <tr>
+      <td colspan="4">Salario Total</td>
+      <td>{{ getSalarioTotal() | currency: "COP" : "$"}}</td>
+    </tr>
+
+
+
+</table>
+
+
+<!--Boton para el Logout-->
+<button (click)="logout()">Logout</button>

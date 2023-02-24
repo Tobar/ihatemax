@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioRegistro } from 'src/app/models/UsuarioRegistro.model';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -9,6 +10,7 @@ import { UsuarioRegistro } from 'src/app/models/UsuarioRegistro.model';
 })
 export class RegistroComponent implements OnInit {
   ngOnInit(): void {}
+
 
   url = 'https://ultraenvios.azurewebsites.net/api/Authenticate/register';
 

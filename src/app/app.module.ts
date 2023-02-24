@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './component/registro/registro.component';
 import { LoginComponent } from './component/login/login.component';
+import { SalarioComponent } from './component/salario/salario.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    SalarioComponent
 
   ],
   imports: [
